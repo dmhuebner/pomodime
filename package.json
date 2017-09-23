@@ -1,16 +1,16 @@
 {
-  "name" : "bloc-frontend-project-starter",
-  "version" : "0.0.4",
-  "description" : "Starter project for the Bloc Frontend Web Development",
+  "name" : "Pomodime",
+  "version" : "0.0.1",
+  "description" : "Pomodime a Pomodoro style timekeeping app designed to keep users productive and on task",
   "repository" : {
     "type" : "git",
-    "url" : "https://github.com/bloc/bloc-frontend-project-starter"
+    "url" : "https://github.com/dmhuebner/pomodime"
   },
   "main" : "server.js",
   "scripts" : {
     "start" : "node server.js"
   },
-  "author" : "Bloc Inc",
+  "author" : "David Huebner",
   "license" : "ISC",
   "dependencies": {
     "hapi" : "~16.4.0",
