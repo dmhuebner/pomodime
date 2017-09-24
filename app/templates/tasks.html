@@ -4,6 +4,7 @@
     <!--<p>{{tasks.test}}</p>-->
     <!--<task-timer></task-timer>-->
     <div><p>{{tasks.taskTimer | timerFilter}}</p></div>
-    <button class="btn btn-primary btn-lg" ng-click="tasks.startTimer()">Start Timer</button>
+    <button ng-hide="tasks.timerOn" class="btn btn-success btn-lg" ng-click="tasks.startTimer()">Start</button>
+    <button ng-show="tasks.timerOn" class="btn btn-default btn-lg" ng-click="tasks.startTimer()">Stop</button>
   </div>
 </div>

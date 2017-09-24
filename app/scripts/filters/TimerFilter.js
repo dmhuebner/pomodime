@@ -5,7 +5,10 @@
       var minutes = Math.floor(seconds / 60);
 
       var secondsLeft = wholeSeconds % 60;
-      secondsLeft === 0 ? secondsLeft = '00' : secondsLeft;
+      if (secondsLeft < 10) {
+        secondsLeft = '0' + secondsLeft;
+      }
+
       var output = minutes + ":" + secondsLeft;
 
       return output;
