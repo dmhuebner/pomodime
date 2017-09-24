@@ -1,9 +1,9 @@
 (function() {
   function HomeCtrl() {
-    var $ctrl = this;
+    var home = this;
 
     // Testing Controller Scope
-    $ctrl.test = "Testing controller scope";
+    home.test = "Testing controller scope";
 
 
   }

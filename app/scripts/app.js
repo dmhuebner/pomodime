@@ -12,6 +12,11 @@
         controller: 'HomeCtrl as home',
         templateUrl: '/templates/home.html'
       })
+      .state('tasks', {
+        url: '/tasks',
+        controller: 'TasksCtrl as tasks',
+        templateUrl: '/templates/tasks.html'
+      })
   }
 
   angular
