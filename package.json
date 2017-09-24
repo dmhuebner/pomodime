@@ -1,6 +1,6 @@
 {
   "name" : "Pomodime",
-  "version" : "0.0.1",
+  "version" : "1.0.0",
   "description" : "Pomodime a Pomodoro style timekeeping app designed to keep users productive and on task",
   "repository" : {
     "type" : "git",
