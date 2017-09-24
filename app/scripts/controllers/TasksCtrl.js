@@ -12,7 +12,7 @@
       tasks.timerOn = true;
       $interval(function() {
         tasks.taskTimer -= 1;
-      }, 1000, 1500).then(function() {
+      }, 1000, tasks.taskTimerStart).then(function() {
         tasks.taskTimer = tasks.taskTimerStart;
         tasks.timerOn = false;
       })};
