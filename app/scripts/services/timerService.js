@@ -5,7 +5,7 @@
 
   function timer($interval) {
 
-    var timerTime = 5;
+    var timerTime = 1500;
 
     var service =  {
       startTimer: startTimer,
