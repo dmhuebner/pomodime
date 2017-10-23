@@ -1,26 +1,27 @@
 (function() {
-  function TasksCtrl($interval) {
-    var tasks = this;
+  function TasksCtrl(timer) {
+    var vm = this;
 
-    tasks.test = "TasksCtrl scope test";
+    vm.test = "TasksCtrl scope test";
 
-    tasks.taskTimerStart = 1500;
-    tasks.taskTimer = tasks.taskTimerStart;
-    tasks.timerOn = false;
+    vm.timer = timer;
 
-    tasks.startTimer = function() {
-      tasks.timerOn = true;
-      $interval(function() {
-        tasks.taskTimer -= 1;
-      }, 1000, tasks.taskTimerStart).then(function() {
-        tasks.taskTimer = tasks.taskTimerStart;
-        tasks.timerOn = false;
-      })};
+    vm.startTimer = startTimer;
+    vm.resetTimer = resetTimer;
 
+    ///////////
 
+    function startTimer() {
+      timer.startTimer();
     }
+
+    function resetTimer() {
+      timer.resetTimer();
+    }
+
+  }
 
   angular
     .module('pomodime')
-    .controller('TasksCtrl', ['$interval', TasksCtrl]);
+    .controller('TasksCtrl', ['timer', TasksCtrl]);
 })();

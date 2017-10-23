@@ -8,9 +8,6 @@
       link: function(scope, element, attrs, controller) {
         var taskTimerStart = 1500000;
         var taskTimer = taskTimerStart;
-
-
-
       }
     }
 
