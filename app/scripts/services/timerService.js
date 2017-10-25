@@ -5,14 +5,17 @@
 
   function timer($interval) {
 
-    var timerTime = 1500;
+    // TODO use constant services for taskTimerTime and breakTime
+    var taskTimerTime = 1500;
+    var breakTime = 300;
+    var taskTimerStartingTime = taskTimerTime;
 
     var service =  {
       startTimer: startTimer,
       resetTimer: resetTimer,
-      taskTimerStartingTime: timerTime,
-      taskTimer: timerTime,
-      timerOn: false
+      taskTimer: taskTimerTime,
+      timerOn: false,
+      timerTypeIsTask: true
     }
 
     return service;
@@ -20,15 +23,22 @@
     var taskInterval;
 
     function startTimer() {
-      // TODO fix if
       if (!taskInterval) {
         service.timerOn = true;
         taskInterval = $interval(function() {
           service.taskTimer -= 1;
-        }, 1000, service.taskTimerStartingTime);
+        }, 1000, taskTimerStartingTime);
 
         taskInterval.then(function() {
-          service.taskTimer = service.taskTimerStartingTime;
+          if (service.timerTypeIsTask) {
+            service.timerTypeIsTask = false;
+            taskTimerStartingTime = breakTime;
+          } else if (!service.timerTypeIsTask) {
+            service.timerTypeIsTask = true;
+            taskTimerStartingTime = taskTimerTime;
+          }
+
+          service.taskTimer = taskTimerStartingTime;
           service.timerOn = false;
           taskInterval = null;
         });
@@ -37,10 +47,16 @@
 
     function resetTimer() {
       if (taskInterval) {
+        /* Automatically restarts timer for next task */
+        if (!service.timerTypeIsTask) {
+          service.timerTypeIsTask = true;
+          taskTimerStartingTime = taskTimerTime;
+        }
+
         $interval.cancel(taskInterval);
         service.timerOn = false;
-        service.taskTimer = service.taskTimerStartingTime;
         taskInterval = null;
+        service.taskTimer = taskTimerStartingTime;
       }
     }
 

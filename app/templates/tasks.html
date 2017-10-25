@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2 jumbotron text-center">
-    <h1>Start a Task</h1>
+    <h1 ng-if="vm.timer.timerTypeIsTask">Start a Task</h1>
+    <h1 ng-if="!vm.timer.timerTypeIsTask">Take a Break</h1>
     <!--<p>{{vm.test}}</p>-->
     <!--<task-timer></task-timer>-->
     <div><p>{{vm.timer.taskTimer | timerFilter}}</p></div>
