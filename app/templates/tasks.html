@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2 jumbotron text-center">
-    <h1>Start a Task</h1>
-    <!--<p>{{vm.test}}</p>-->
-    <!--<task-timer></task-timer>-->
-    <div><p>{{vm.timer.taskTimer | timerFilter}}</p></div>
-    <button ng-hide="vm.timer.timerOn" class="btn btn-success btn-lg" ng-click="vm.startTimer()">Start</button>
-    <button ng-show="vm.timer.timerOn" class="btn btn-danger btn-lg" ng-click="vm.resetTimer()">Reset</button>
+    <h1 ng-if="vm.timerTypeIsTask()">Start a Task</h1>
+    <h1 ng-if="!vm.timerTypeIsTask()">Take a Break</h1>
+    <div><p>{{vm.getTaskTimer() | timerFilter}}</p></div>
+    <button ng-hide="vm.getTimerOn()" class="btn btn-success btn-lg" ng-click="vm.startTimer()">Start</button>
+    <button ng-show="vm.getTimerOn() && !vm.timerTypeIsTask()" class="btn btn-default btn-lg" ng-click="vm.resetBreakTimer()">Restart Break</button>
+    <button ng-show="vm.getTimerOn()" class="btn btn-danger btn-lg" ng-click="vm.resetTimer()">Reset</button>
   </div>
 </div>
