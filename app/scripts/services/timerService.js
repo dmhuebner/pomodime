@@ -6,16 +6,17 @@
   function timer($interval) {
 
     // TODO use constant services for taskTimerTime and breakTime
-    var taskTimerTime = 1500;
-    var breakTime = 300;
+    var taskTimerTime = 5;
+    var breakTime = 3;
     var taskTimerStartingTime = taskTimerTime;
 
     var service =  {
-      startTimer: startTimer,
-      resetTimer: resetTimer,
       taskTimer: taskTimerTime,
       timerOn: false,
-      timerTypeIsTask: true
+      timerTypeIsTask: true,
+      /* Service Methods */
+      startTimer: startTimer,
+      resetTimer: resetTimer
     }
 
     return service;
@@ -41,14 +42,18 @@
           service.taskTimer = taskTimerStartingTime;
           service.timerOn = false;
           taskInterval = null;
+        }).catch(function(error) {
+            console.log(error);
         });
       }
     }
 
-    function resetTimer() {
+    function resetTimer(resetBreak) {
       if (taskInterval) {
         /* Automatically restarts timer for next task */
-        if (!service.timerTypeIsTask) {
+        if (!service.timerTypeIsTask && resetBreak) {
+          service.timerTypeIsTask = false;
+        } else {
           service.timerTypeIsTask = true;
           taskTimerStartingTime = taskTimerTime;
         }
