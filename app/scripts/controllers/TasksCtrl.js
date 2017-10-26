@@ -1,4 +1,8 @@
 (function() {
+  angular
+    .module('pomodime')
+    .controller('TasksCtrl', ['timer', TasksCtrl]);
+
   function TasksCtrl(timer) {
     var vm = this;
 
@@ -24,6 +28,8 @@
     }
 
     function timerTypeIsTask() {
+      timer.timerTypeIsTask ? vm.resetButtonText = 'Reset' : vm.resetButtonText = 'End Break';
+
       return timer.timerTypeIsTask;
     }
 
@@ -37,7 +43,4 @@
 
   }
 
-  angular
-    .module('pomodime')
-    .controller('TasksCtrl', ['timer', TasksCtrl]);
 })();

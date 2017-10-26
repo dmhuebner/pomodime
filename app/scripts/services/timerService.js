@@ -6,8 +6,8 @@
   function timer($interval) {
 
     // TODO use constant services for taskTimerTime and breakTime
-    var taskTimerTime = 5;
-    var breakTime = 3;
+    var taskTimerTime = 1500;
+    var breakTime = 300;
     var taskTimerStartingTime = taskTimerTime;
 
     var service =  {
