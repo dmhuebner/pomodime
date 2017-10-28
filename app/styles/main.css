@@ -1,0 +1,19 @@
+/*** Variables ***/
+/*** Mixins ***/
+/*** Main Styles ***/
+body {
+  color: #777; }
+
+.task-timer-jumbotron {
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -ms-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+  background-color: #00a9ff;
+  color: #fff; }
+
+.task-timer-jumbo-on {
+  background-color: #ff6868; }
+
+/*# sourceMappingURL=main.css.map */

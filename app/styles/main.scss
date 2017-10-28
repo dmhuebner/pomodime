@@ -1,0 +1,36 @@
+/*** Variables ***/
+
+$pomBackground: #00a9ff;
+$taskTimerOnBackground: #ff6868;
+$breakTimerOnBackground: #ffc270;
+
+$bodyTextColor: #777;
+$jumbotronTextColor: #fff;
+
+/*** Mixins ***/
+
+@mixin transition($duration) {
+  -webkit-transition: $duration;
+  -moz-transition: $duration;
+  -ms-transition: $duration;
+  -o-transition: $duration;
+  transition: $duration;
+}
+
+/*** Main Styles ***/
+
+body {
+  color: $bodyTextColor;
+}
+
+.task-timer-jumbotron {
+  @include transition(.25s);
+  background-color: $pomBackground;
+  color: $jumbotronTextColor;
+
+}
+
+.task-timer-jumbo-on {
+  background-color: $taskTimerOnBackground;
+}
+
