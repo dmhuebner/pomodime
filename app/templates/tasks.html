@@ -1,10 +1,14 @@
 <div class="row">
   <h2 class="text-center">Welcome to Pomodime</h2>
-  <div class="col-md-8 col-md-offset-2 jumbotron task-timer-jumbotron text-center" ng-class="{ 'task-timer-jumbo-on': vm.getTimerOn() && vm.timerTypeIsTask() }">
-    <h2 ng-if="vm.timerTypeIsTask() && !vm.getTimerOn()">Start a Task!</h2>
-    <h2 ng-if="vm.timerTypeIsTask() && vm.getTimerOn()">Working away...</h2>
-    <h2 ng-if="!vm.timerTypeIsTask() && !vm.getTimerOn()">Take a Break!</h2>
-    <h2 ng-if="!vm.timerTypeIsTask() && vm.getTimerOn()">On Break</h2>
+  <div class="col-md-8 col-md-offset-2 jumbotron timer-jumbotron text-center"
+       ng-class="{ 'task-timer-jumbotron': vm.timerTypeIsTask(),
+          'break-timer-jumbotron': !vm.timerTypeIsTask(),
+          'task-timer-jumbo-on': vm.getTimerOn() && vm.timerTypeIsTask(),
+          'break-timer-jumbo-on': vm.getTimerOn() && !vm.timerTypeIsTask() }">
+    <h2 class="timer-header" ng-show="vm.timerTypeIsTask() && !vm.getTimerOn()">Start a Task!</h2>
+    <h2 class="timer-header" ng-show="vm.timerTypeIsTask() && vm.getTimerOn()">Working away...</h2>
+    <h2 class="timer-header" ng-show="!vm.timerTypeIsTask() && !vm.getTimerOn()">Take a Break!</h2>
+    <h2 class="timer-header" ng-show="!vm.timerTypeIsTask() && vm.getTimerOn()">On Break</h2>
     <pd-task-timer></pd-task-timer>
   </div>
 </div>
