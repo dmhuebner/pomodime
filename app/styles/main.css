@@ -1,0 +1,95 @@
+/*** Variables ***/
+/*** Mixins ***/
+/*** Main Styles ***/
+body {
+  color: #777;
+  background-color: #fff;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s; }
+
+.btn.btn-primary {
+  background-color: #6748d8;
+  border: 1px solid #5d3eab; }
+
+.body-task-timer-on {
+  background-color: #333;
+  color: #ff6868; }
+
+.navbar-default {
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+  box-shadow: 2px 2px 5px #aaa;
+  -moz-box-shadow: 2px 2px 5px #aaa;
+  -webkit-box-shadow: 2px 2px 5px #aaa;
+  -o-box-shadow: 2px 2px 5px #aaa; }
+
+.nav-task-timer-on {
+  box-shadow: 7px 7px 50px #000;
+  -moz-box-shadow: 7px 7px 50px #000;
+  -webkit-box-shadow: 7px 7px 50px #000;
+  -o-box-shadow: 7px 7px 50px #000;
+  background-color: #333;
+  border: 1px solid #242424; }
+  .nav-task-timer-on .navbar-brand {
+    color: #ff6868; }
+
+.timer-jumbotron {
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+  color: #fff; }
+  .timer-jumbotron .timer-header {
+    margin-top: 0; }
+  .timer-jumbotron .timer-digits {
+    -webkit-transition: 0.6s;
+    -moz-transition: 0.6s;
+    -ms-transition: 0.6s;
+    -o-transition: 0.6s;
+    transition: 0.6s; }
+  .timer-jumbotron .btn {
+    box-shadow: 1px 1px 3px #333;
+    -moz-box-shadow: 1px 1px 3px #333;
+    -webkit-box-shadow: 1px 1px 3px #333;
+    -o-box-shadow: 1px 1px 3px #333; }
+
+.task-timer-jumbotron {
+  background-color: #00a9ff; }
+
+.break-timer-jumbotron {
+  background-color: #51be5c; }
+
+.task-timer-jumbo-on {
+  background-color: #ff6868;
+  box-shadow: 20px 20px 100px #000;
+  -moz-box-shadow: 20px 20px 100px #000;
+  -webkit-box-shadow: 20px 20px 100px #000;
+  -o-box-shadow: 20px 20px 100px #000; }
+  .task-timer-jumbo-on .timer-digits {
+    text-shadow: 2px 2px 3px #222;
+    -moz-text-shadow: 2px 2px 3px #222;
+    -webkit-text-shadow: 2px 2px 3px #222;
+    -o-text-shadow: 2px 2px 3px #222;
+    font-size: 15rem; }
+
+.break-timer-jumbo-on {
+  background-color: #ffc270;
+  box-shadow: 20px 20px 100px #000;
+  -moz-box-shadow: 20px 20px 100px #000;
+  -webkit-box-shadow: 20px 20px 100px #000;
+  -o-box-shadow: 20px 20px 100px #000; }
+  .break-timer-jumbo-on .timer-digits {
+    font-size: 15rem;
+    text-shadow: 2px 2px 3px #222;
+    -moz-text-shadow: 2px 2px 3px #222;
+    -webkit-text-shadow: 2px 2px 3px #222;
+    -o-text-shadow: 2px 2px 3px #222; }
+
+/*# sourceMappingURL=main.css.map */

@@ -6,9 +6,10 @@
   function timer($interval) {
 
     // TODO use constant services for taskTimerTime and breakTime
-    var taskTimerTime = 1500;
-    var breakTime = 300;
+    var taskTimerTime = 5;
+    var breakTime = 3;
     var taskTimerStartingTime = taskTimerTime;
+    var taskInterval;
 
     var service =  {
       taskTimer: taskTimerTime,
@@ -20,8 +21,6 @@
     }
 
     return service;
-
-    var taskInterval;
 
     function startTimer() {
       if (!taskInterval) {

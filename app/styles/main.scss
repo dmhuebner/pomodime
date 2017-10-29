@@ -1,0 +1,124 @@
+/*** Variables ***/
+
+$softBlue: #00a9ff;
+$pomColor: #ff6868;
+$mellow: #ffc270;
+$darkerBackground: #333;
+
+$lightGrey: #aaa;
+$grey: #777;
+$white: #fff;
+$black: #000;
+$almostBlack: #222;
+$darkishPurple: #6748d8;
+
+/*** Mixins ***/
+
+@mixin transition($duration) {
+  -webkit-transition: $duration;
+  -moz-transition: $duration;
+  -ms-transition: $duration;
+  -o-transition: $duration;
+  transition: $duration;
+}
+
+@mixin box-shadow($px, $px2, $color) {
+  box-shadow: $px $px $px2 $color;
+  -moz-box-shadow: $px $px $px2 $color;
+  -webkit-box-shadow: $px $px $px2 $color;
+  -o-box-shadow: $px $px $px2 $color;
+}
+
+@mixin text-shadow($px, $px2, $color) {
+  text-shadow: $px $px $px2 $color;
+  -moz-text-shadow: $px $px $px2 $color;
+  -webkit-text-shadow: $px $px $px2 $color;
+  -o-text-shadow: $px $px $px2 $color;
+}
+
+/*** Main Styles ***/
+
+body {
+  color: $grey;
+  background-color: $white;
+  @include transition(1s);
+}
+
+.btn.btn-primary {
+  background-color: $darkishPurple;
+  border: 1px solid #5d3eab;
+}
+
+.body-task-timer-on {
+  background-color: $darkerBackground;
+  color: $pomColor;
+}
+
+.navbar-default {
+  @include transition(1s);
+  @include box-shadow(2px, 5px, $lightGrey);
+}
+
+.nav-task-timer-on {
+  @include box-shadow(7px, 50px, $black);
+  background-color: $darkerBackground;
+  border: 1px solid #242424;
+
+  .navbar-brand {
+    color: $pomColor;
+  }
+}
+
+.timer-jumbotron {
+  @include transition(.4s);
+  color: $white;
+  //padding-top: 3rem;
+
+  .timer-header {
+    margin-top: 0;
+  }
+
+  .timer-digits {
+    @include transition(.6s);
+  }
+
+  .btn {
+    @include box-shadow(1px, 3px, $darkerBackground);
+  }
+}
+
+.task-timer-jumbotron {
+  background-color: $softBlue;
+}
+
+.break-timer-jumbotron {
+  background-color: #51be5c;
+}
+
+.task-timer-jumbo-on {
+  background-color: $pomColor;
+  @include box-shadow(20px, 100px, $black);
+
+  //.timer-header {
+  //  @include text-shadow(3px, 4px, $black);
+  //}
+
+  .timer-digits {
+    @include text-shadow(2px, 3px, $almostBlack);
+    font-size: 15rem;
+  }
+}
+
+.break-timer-jumbo-on {
+  background-color: $mellow;
+  @include box-shadow(20px, 100px, $black);
+
+  //.timer-header {
+  //  @include text-shadow(1px, 1px, #000);
+  //}
+
+  .timer-digits {
+    font-size: 15rem;
+    @include text-shadow(2px, 3px, $almostBlack);
+  }
+}
