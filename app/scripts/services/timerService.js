@@ -1,13 +1,13 @@
 (function() {
   angular
     .module('pomodime')
-    .factory('timer', ['$interval', timer]);
+    .factory('timer', ['$interval', 'TASK_TIMER_TIME', 'BREAK_TIME', timer]);
 
-  function timer($interval) {
+  function timer($interval, TASK_TIMER_TIME, BREAK_TIME) {
 
     // TODO use constant services for taskTimerTime and breakTime
-    var taskTimerTime = 5;
-    var breakTime = 3;
+    var taskTimerTime = TASK_TIMER_TIME;
+    var breakTime = BREAK_TIME;
     var taskTimerStartingTime = taskTimerTime;
     var taskInterval;
 
