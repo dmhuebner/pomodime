@@ -7,7 +7,7 @@
 
     var taskTimerTime = TASK_TIMER_TIME,
         breakTime = BREAK_TIME,
-        longBreakTime = 5,
+        longBreakTime = 1800,
         periodicLongBreak = true,
         taskTimerStartingTime = taskTimerTime,
         taskInterval;
