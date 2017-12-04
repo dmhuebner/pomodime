@@ -1,15 +1,16 @@
 (function() {
   angular
     .module('pomodime')
-    .factory('timer', ['$interval', 'TASK_TIMER_TIME', 'BREAK_TIME', timer]);
+    .factory('timer', ['$interval', 'TASK_TIMER_TIME', 'BREAK_TIME', 'TaskService', timer]);
 
-  function timer($interval, TASK_TIMER_TIME, BREAK_TIME) {
+  function timer($interval, TASK_TIMER_TIME, BREAK_TIME, TaskService) {
 
-    // TODO use constant services for taskTimerTime and breakTime
-    var taskTimerTime = TASK_TIMER_TIME;
-    var breakTime = BREAK_TIME;
-    var taskTimerStartingTime = taskTimerTime;
-    var taskInterval;
+    var taskTimerTime = TASK_TIMER_TIME,
+        breakTime = BREAK_TIME,
+        longBreakTime = 5,
+        periodicLongBreak = true,
+        taskTimerStartingTime = taskTimerTime,
+        taskInterval;
 
     var service =  {
       taskTimer: taskTimerTime,
@@ -17,7 +18,8 @@
       timerTypeIsTask: true,
       /* Service Methods */
       startTimer: startTimer,
-      resetTimer: resetTimer
+      resetTimer: resetTimer,
+      togglePeriodicLongBreak: togglePeriodicLongBreak
     }
 
     return service;
@@ -31,8 +33,18 @@
 
         taskInterval.then(function() {
           if (service.timerTypeIsTask) {
+            if (periodicLongBreak && TaskService.completedSessionCount < 3) {
+              TaskService.addCompletedSessionCount();
+              taskTimerStartingTime = breakTime;
+            } else if (periodicLongBreak) {
+              TaskService.resetCompletedSessionCount();
+              taskTimerStartingTime = longBreakTime;
+            } else {
+              taskTimerStartingTime = breakTime;
+            }
+
+            console.log(TaskService.completedSessionCount);
             service.timerTypeIsTask = false;
-            taskTimerStartingTime = breakTime;
           } else if (!service.timerTypeIsTask) {
             service.timerTypeIsTask = true;
             taskTimerStartingTime = taskTimerTime;
@@ -62,6 +74,10 @@
         taskInterval = null;
         service.taskTimer = taskTimerStartingTime;
       }
+    }
+
+    function togglePeriodicLongBreak() {
+      periodicLongBreak = !periodicLongBreak;
     }
 
   }
